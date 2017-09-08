@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+<body>
+
+<!--list persons-->
+<h1>Your Info</h1>
+<table>
+<tr>
+<td><p>Name</p></td>
+<td><p>Email</p></td>
+</tr>
+
+<!--<th:block th:each="${curperson}">-->
+<tr>
+<td><p th:text="${curperson.fName}+' '+${curperson.lName}"/></td>
+<td><p th:text="${curperson.email}"/></td>
+<td><a th:href="@{/addedu}">Add educations</a></td>
+<td><a th:href="@{/addexp}">Add working experiences</a></td>
+<td><a th:href="@{/addski}">Add skills</a></td>
+<td><a th:href="@{/listresume}">Show resume</a></td>
+</tr>
+</th:block>
+
+</table>
+</body>
+</html>

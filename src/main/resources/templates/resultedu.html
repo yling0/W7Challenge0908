@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+<body>
+<h2>Your education added successfully</h2>
+<br/>
+<p th:text="'Education: ' + ${newEdu.degree} + ' in ' + ${newEdu.major}"/>
+<p th:text="${newEdu.uni}"/>
+<p th:text="${newEdu.graduateDate}"/>
+
+<a th:href="@{/addedu/{id}(id=${newEdu.person.id})}"><button class="btn btn-dark">Add another</button></a>
+<a href="/showper"><button class="btn btn-dark">Back Home</button></a>
+
+</body>
+</html>
