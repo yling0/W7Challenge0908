@@ -18,30 +18,36 @@
 <div class="containerincenter">
     <div class="container">
         <div class="textincenter">
-            <h1>Welcome!</h1>
-            <h3>You have logged in</h3>
+            <h2>Welcome!</h2>
             <br/>
+            <div sec:authorize="hasAuthority('SEEKERS')">
+                <h4>Create your resume here:</h4>
+                <!--<a href="/addedu" class="btn btn-primary">Add Education</a>-->
+                <!--<a href="/addexp" class="btn btn-primary">Add Working Experience</a>-->
+                <!--<a href="/addski" class="btn btn-primary">Add Skill</a>-->
+                <!--<a href="/listresume" class="btn btn-primary">Show Resume</a>-->
+                <!--<br/>-->
+                <a href="/showper" class="btn btn-primary">Show My Infomation</a>
+                <a href="/notification" class="btn btn-primary">Get My Job Notification</a>
+                <br/>
+            </div>
+
+            <div sec:authorize="hasAuthority('RECRUITERS')">
+                <h4>Post job here:</h4>
+                <p><a href="/postjob" class="btn btn-primary">Post a Job</a></p>
+                <p><a href="/showpostjob" class="btn btn-primary">Show posted jobs</a></p>
+                <br/>
+            </div>
 
             <div sec:authorize="isAuthenticated()">
-                This content is only shown to authenticated users.
-            </div>
-            <div sec:authorize="hasAuthority('RECRUITERS')">
-                This content is only shown to recruiters.
-                <p><a href="/postjobtoper" class="btn btn-primary">Post a Job</a></p>
-                <p><a href="/showpostjob" class="btn btn-primary">Show posted jobs</a></p>
-            </div>
-            <div sec:authorize="hasAuthority('SEEKERS')">
-                This content is only shown to job seekers.
-                <p><a href="/addedu" class="btn btn-primary">Add Education</a></p>
-
+                <h4>Search people or job</h4>
+                <p><a href="/searchhome" class="btn btn-success">Search</a></p>
+                <br/>
             </div>
 
-            Logged user: <span sec:authentication="name">The user is not logged in yet</span>
+            <p>Logged user: <span sec:authentication="name">The user is not logged in yet</span></p>
             <!--Roles: <span sec:authentication="principal.authorities">Principal Authorities not set</span>-->
-
-            <a href="/showper" class="btn btn-primary">Show Person</a>
-
-            <a href="/logout" class="btn btn-primary">Logout</a>
+            <a href="/logout" class="btn btn-default">Logout</a>
         </div>
     </div>
 </div>

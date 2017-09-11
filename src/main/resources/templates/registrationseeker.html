@@ -29,7 +29,7 @@
                     <label class="col-lg-10"></label>
                     <div class="form-group-lg">
                         <label for="lastName" class="col-lg-4 control-label">Lastname</label>
-                        <mark><strong><span th:if="${#fields.hasErrors('lName')}" th:error="*{lName}">Last Name Error</span></strong></mark>
+                        <strong><span th:if="${#fields.hasErrors('lName')}" th:error="*{lName}">Last Name Error</span></strong>
                         <div class="col-lg-4">
                             <input class="form-control" type="text" id="lastName" placeholder="Last Name" th:field="*{lName}" /><br/>
                         </div>
@@ -37,7 +37,7 @@
                     <label class="col-lg-10"></label>
                     <div class="form-group-lg">
                         <label for="email" class="col-lg-4 control-label">Email</label>
-                        <mark><strong><span th:if="${#fields.hasErrors('email')}" th:error="*{email}">Email Error</span></strong></mark>
+                       <strong><span th:if="${#fields.hasErrors('email')}" th:error="*{email}">Email Error</span></strong>
                         <div class="col-lg-4">
                             <input class="form-control" type="text" id="email" placeholder="Email" th:field="*{email}" /><br/>
                         </div>
@@ -45,7 +45,7 @@
                     <label class="col-lg-10"></label>
                     <div class="form-group-lg">
                         <label for="username" class="col-lg-4 control-label">Username</label>
-                        <mark><strong><span th:if="${#fields.hasErrors('username')}" th:error="*{username}">Username Error</span></strong></mark>
+                        <strong><span th:if="${#fields.hasErrors('username')}" th:error="*{username}">Username Error</span></strong>
                         <div class="col-lg-4">
                             <input class="form-control" type="text" id="username" placeholder="Username" th:field="*{username}" /><br/>
                         </div>
@@ -53,7 +53,7 @@
                     <label class="col-lg-10"></label>
                     <div class="form-group-lg">
                         <label for="password" class="col-lg-4 control-label">Password</label>
-                        <mark><strong><span th:if="${#fields.hasErrors('password')}" th:error="*{password}">Password Error</span></strong></mark>
+                        <strong><span th:if="${#fields.hasErrors('password')}" th:error="*{password}">Password Error</span></strong>
                         <div class="col-lg-4">
                             <input class="form-control" type="password" id="password" placeholder="Password" th:field="*{password}" /><br/>
                         </div>

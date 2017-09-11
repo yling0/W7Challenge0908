@@ -150,11 +150,6 @@ public class MainController {
 
         System.out.println("-----"+searchPerResult+"-----");
 
-//        model.addAttribute("searchLNameResult", searchNameResult2);
-
-//        System.out.println(perRepo.findAllByFName(searchName));
-//        System.out.println(perRepo.findAllByLName(searchName));
-
         return "searchpernameresult";
     }
 
@@ -243,22 +238,22 @@ public class MainController {
         return"listresume";
     }
 
-    //update person's info
-    @RequestMapping("/updateperson")
-    public String updatePerson (Principal principal, Model model)
-    {
-        model.addAttribute("newPerson", perRepo.findByUsername(principal.getName()));
-        return "registerationseeker";
-    }
-
-    //delete person
-    @RequestMapping("/deleteperson/{id}")
-    public String delPerson(@PathVariable("id") long id, Model model)
-    {
-        perRepo.delete(id);
-        return "redirect:/showper";
-    }
-
+//    //update person's info
+//    @RequestMapping("/updateperson")
+//    public String updatePerson (Principal principal, Model model)
+//    {
+//        model.addAttribute("newPerson", perRepo.findByUsername(principal.getName()));
+//        return "registerationseeker";
+//    }
+//
+//    //delete person
+//    @RequestMapping("/deleteperson/{id}")
+//    public String delPerson(@PathVariable("id") long id, Model model)
+//    {
+//        perRepo.delete(id);
+//        return "redirect:/showper";
+//    }
+//
 
     //add education to current login person
     @GetMapping("/addedu")

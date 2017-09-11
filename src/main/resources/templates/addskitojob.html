@@ -11,35 +11,41 @@
 </head>
 <body>
 
-<h2 th:text="${addskimessage}">This should not display</h2>
+<th:block th:replace="base :: navlinks"></th:block>
 
-<form action="#" th:action="@{/addskitojob/{jobid}(jobid=${job.jobId})}" method="post">
-    <input type="text" th:field="*{job.jobId}" />
-    <input type="text" th:field="*{job.jobTitle}"/>
+<div class="containerforindex">
+    <div class="container">
+        <div class="textincenter">
 
-    <label th:inline="text">Adding skill for [[${job.jobTitle}]]</label>
+            <h2 th:text="${addskimessage}">This should not display</h2>
 
-    <select name="job">
-        <option th:each="item:${skillsforjob}" th:value="${item.skiId}" th:text="${item.skiName}"></option>
-        <!--<input type="text" th:field="${item.skiId}"/>-->
-    </select>
+            <form action="#" th:action="@{/addskitojob/{jobid}(jobid=${job.jobId})}" method="post">
+                <input type="hidden" th:field="*{job.jobId}" />
+                <input type="hidden" th:field="*{job.jobTitle}"/>
 
-    <!--<input type="text" th:field="*{skiId}" />-->
-    <br/>
-    <!--<th:block th:each="item:${skillsforjob}">-->
-        <!--<p>Enter skills: <input type="text" th:text="${item.skiName}"/> </p>-->
+                <label th:inline="text">Adding skill for [[${job.jobTitle}]]</label>
 
-    <!--</th:block>-->
+                <select name="job">
+                    <option th:each="item:${skillsforjob}" th:value="${item.skiId}" th:text="${item.skiName}"></option>
+                    <!--<input type="text" th:field="${item.skiId}"/>-->
+                </select>
 
-    <!--<p><span th:if="${#fields.hasErrors('skiName')}" th:error="*{skiName}">Input Error</span></p>-->
-    <!--<p>Enter your skills: <input type="text" th:field="*{skiName}"/></p>-->
+                <br/>
 
-    <!--<span th:if="${#fields.hasErrors('skiLevel')}" th:error="*{skiLevel}">Input Error</span>-->
-    <!--<p>Enter your skills' level: <input type="text" th:field="*{skiLevel}"/></p>-->
+                <button type="submit" class="btn btn-dark" value="Submit">Add Skill</button>
+                <button type="reset" class="btn btn-dark" value="Reset">Reset</button>
+            </form>
 
-    <button type="submit" class="btn btn-dark" value="Submit">Add Skill</button>
-    <button type="reset" class="btn btn-dark" value="Reset">Reset</button>
-</form>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Bootstrap 4.0 JavaScript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 </body>
 </html>
