@@ -387,6 +387,7 @@ public class MainController {
         return "redirect:/listresume";
     }
 
+
     //for logged in recruiter to post job
     @GetMapping("/postjob")
     public String addJobtoPer (Principal principal, Model model)
@@ -465,16 +466,8 @@ public class MainController {
                                 @ModelAttribute("theSkill")Skill skill, Model model)
     {
 
-        Skill jobskill = new Skill();
-//        Skill s = skiRepo.findOne(new Long(skiId));
-//        s.addJob(jobRepo.findOne(new Long(jobId)));
-//        skiRepo.save(s);
-//
-//        model.addAttribute("alljob", jobRepo.findAll());
-//        model.addAttribute("allskill", skiRepo.findAll());
-
-
-        System.out.println(jobskill);
+//        Skill jobskill = new Skill();
+//        System.out.println(jobskill);
 
         Job postjob2 = jobRepo.findOne(new Long(id));
         System.out.println(id);
@@ -493,6 +486,48 @@ public class MainController {
         return "jobdetail";
     }
 
+    //add new skill to current posted job
+    @GetMapping("/addnewskitojob/{id}")
+    public String addnewSkitoJob (@PathVariable("id") long jobId, Model model)
+    {
+
+        Job postjob = jobRepo.findOne(new Long(jobId));
+        model.addAttribute("job", postjob);
+
+        System.out.println("+++++++jobID: "+jobId+"+++++++");
+        model.addAttribute("skillsforjob", skiRepo.findAll());
+
+        System.out.println(postjob);
+        return "addnewskitojob";
+    }
+
+    @PostMapping("/addnewskitojob/{jobid}")
+    public String postnewSkitoJob (@PathVariable("jobid") long id,
+                                @RequestParam("job") String jobId,
+                                @ModelAttribute("theSkill")Skill skill, Model model)
+    {
+
+//        Skill jobskill = new Skill();
+//        System.out.println(jobskill);
+
+        Job postjob2 = jobRepo.findOne(new Long(id));
+        System.out.println(id);
+        System.out.println("postjob2: ---"+postjob2);
+
+        postjob2.addSkitoJob(skiRepo.findOne(new Long(jobId)));
+        System.out.println(jobId);
+        jobRepo.save(postjob2);
+
+        System.out.println("skiRepo.findOne(jobID):+++"+skiRepo.findOne(new Long(id)));
+        System.out.println(postjob2.getJobskillSet());
+
+        model.addAttribute("findjob",postjob2);
+        model.addAttribute("findskill",postjob2.getJobskillSet());
+
+        return "jobdetail";
+    }
+
+
     @GetMapping("/notification")
     public String jobNotification(Principal principal, Skill skinot, Model model)
     {
@@ -507,8 +542,8 @@ public class MainController {
                 {
                     if (skill.getSkiName().equals(skill1.getSkiName()))
                     {
-                        System.out.println("A Job matching your skill");
-                        System.out.println("*****Job title: "+job.getJobTitle());
+//                        System.out.println("A Job matching your skill");
+//                        System.out.println("*****Job title: "+job.getJobTitle());
                         jobnot.add(job);
                     }
                     else

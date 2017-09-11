@@ -59,13 +59,13 @@
     <th:block th:each="singleski:${person.skillSet}">
         <tr>
             <p></p>
-            <p th:text="${singleski.skiName} + ', '+ ${singleski.skiLevel}"/>
+            <p th:text="${singleski.skiName} + ', '+ ${singleski.skiLevel}"></p>
             <a th:href="@{/updateski/{id}(id=${singleski.skiId})}">Update</a> -
             <a th:href="@{/deleteski/{id}(id=${singleski.skiId})}">Delete</a>
         </tr>
     </th:block>
 
-    <a href="/welcome"><button class="btn btn-dark">Back Home</button></a>
+    <!--<a href="/welcome"><button class="btn btn-dark">Back Home</button></a>-->
 
 </div>
 
