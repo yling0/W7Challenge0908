@@ -154,4 +154,24 @@ public class Person {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    public void delEdu (Education education)
+    {
+        this.getEducationSet().remove(education);
+    }
+
+    public void delExp (Experience experience)
+    {
+        this.getExperienceSet().remove(experience);
+    }
+
+    public void delSki (Skill skill)
+    {
+        this.getSkillSet().remove(skill);
+    }
+
+    public void delJob (Job job)
+    {
+        this.getJobSet().remove(job);
+    }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Job Title</td>
+        <td>Employer</td>
+        <td>Salary</td>
+        <td>Description</td>
+    </tr>
+    <tr th:each="job : ${searchTitResult}">
+        <td th:text="${job.jobTitle}"></td>
+        <td th:text="${job.employer}"></td>
+        <td th:text="${job.salary}"></td>
+        <td th:text="${job.description}"></td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>

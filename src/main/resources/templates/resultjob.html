@@ -10,11 +10,11 @@
 
 </head>
 <body>
-<h2>Your education added successfully</h2>
+<h2>Your job posted successfully</h2>
 <br/>
-<p th:text="'Education: ' + ${newEdu.degree} + ' in ' + ${newEdu.major}"></p>
-<p th:text="${newEdu.uni}"></p>
-<p th:text="${newEdu.graduateDate}"></p>
+<p th:text="'Job: ' + ${newJob.jobTitle} + ' in ' + ${newJob.employer}"></p>
+<p th:text="${newJob.salary}"></p>
+<p th:text="${newJob.description}"></p>
 
 <a href="/addedu"><button class="btn btn-dark">Add another</button></a>
 <a href="/showper"><button class="btn btn-dark">Back Home</button></a>

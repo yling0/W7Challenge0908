@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Skill {
@@ -22,6 +24,9 @@ public class Skill {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="person_id")
     private Person person;
+
+    @ManyToMany(mappedBy = "jobskillSet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Job> jobSet;
 
     public long getSkiId() {
         return skiId;
@@ -53,5 +58,23 @@ public class Skill {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Set<Job> getJobSet() {
+        return jobSet;
+    }
+
+    public void setJobSet(Set<Job> jobSet) {
+        this.jobSet = jobSet;
+    }
+
+    public Skill()
+    {
+        this.jobSet=new HashSet<Job>();
+    }
+
+    public void addJob (Job job)
+    {
+        jobSet.add(job);
     }
 }

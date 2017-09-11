@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Company</td>
+        <td>Start Date</td>
+        <td>End Date</td>
+    </tr>
+    <tr th:each="person : ${searchPerResultbyCom}">
+        <td th:text="${person.fName}"></td>
+        <td th:text="${person.lName}"></td>
+    </tr>
+    <tr  th:each="company : ${searchComResult}">
+        <td th:text="${company.company}"></td>
+        <td th:text="${company.startDate}"></td>
+        <td th:text="${company.endDate}"></td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>

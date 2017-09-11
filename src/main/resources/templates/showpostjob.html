@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extrac-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login Page</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+<body>
+
+<h1>Your Resume</h1>
+<!--Person's info-->
+<!--<th:block th:each="${persons}">-->
+<tr>
+    <p></p>
+    <p th:text="${recruiter.fName} +' '+ ${recruiter.lName}"></p>
+    <p th:text="${recruiter.email}"></p>
+    <a th:href="@{/updateperson/{id}(id=${recruiter.id})}">Update</a>
+    <a th:href="@{/deleteperson/{id}(id=${recruiter.id})}">Delete</a>
+</tr>
+
+<!--Posted Job info-->
+<h3>Posted Jobs</h3>
+
+<th:block th:each="singlejob:${recruiter.jobSet}">
+    <tr>
+        <p></p>
+        <p th:text="${singlejob.jobTitle}"></p>
+        <p th:text="${singlejob.employer}"></p>
+        <p th:text="${singlejob.salary}"></p>
+        <p th:text="${singlejob.description}"></p>
+        <td>
+            <a th:href="@{/updatejob/{id}(id=${singlejob.jobId})}">Update</a> -
+            <a th:href="@{/addskitojob/{id}(id=${singlejob.jobId})}">Add required skills</a> -
+            <a th:href="@{/deletejob/{id}(id=${singlejob.jobId})}">Delete</a>
+        </td>
+        <br />
+    </tr>
+</th:block>
+
+
+<a href="/showper"><button class="btn btn-dark">Back Home</button></a>
+
+</body>
+</html>

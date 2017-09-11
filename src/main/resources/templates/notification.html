@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extrac-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login Page</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Job Title</th>
+        <th>Action</th>
+    </tr>
+    <tbody>
+    <th:block th:each="item:${joblist}">
+        <tr>
+            <td><p th:text="${item.jobTitle}"></p></td>
+        </tr>
+    </th:block>
+    </tbody>
+
+
+</table>
+
+
+</body>
+</html>

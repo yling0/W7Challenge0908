@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    <tr th:each="person : ${searchFNameResult}">
+        <td th:text="${person.fName}"></td>
+        <td th:text="${person.lName}"></td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>

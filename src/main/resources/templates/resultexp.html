@@ -10,13 +10,15 @@
 
 </head>
 <body>
-<h2>Your education added successfully</h2>
-<br/>
-<p th:text="'Education: ' + ${newEdu.degree} + ' in ' + ${newEdu.major}"></p>
-<p th:text="${newEdu.uni}"></p>
-<p th:text="${newEdu.graduateDate}"></p>
 
-<a href="/addedu"><button class="btn btn-dark">Add another</button></a>
+<h2>Your working experience added successfully</h2>
+<br/>
+<h4><p th:text="${newExp.title}"/></h4>
+<h4><p th:text="${newExp.company} +', '+${newExp.startDate}+' - '+${newExp.endDate}"/></h4>
+<h4><p th:text="'Duty1: ' + ${newExp.duty1}"/></h4>
+<h4><p th:text="'Duty2: ' + ${newExp.duty2}"/></h4>
+
+<a href="/addexp"><button class="btn btn-dark">Add another</button></a>
 <a href="/showper"><button class="btn btn-dark">Back Home</button></a>
 
 </body>

@@ -27,10 +27,12 @@
             </div>
             <div sec:authorize="hasAuthority('RECRUITERS')">
                 This content is only shown to recruiters.
+                <p><a href="/postjobtoper" class="btn btn-primary">Post a Job</a></p>
+                <p><a href="/showpostjob" class="btn btn-primary">Show posted jobs</a></p>
             </div>
             <div sec:authorize="hasAuthority('SEEKERS')">
                 This content is only shown to job seekers.
-                <a href="/addedu" class="btn btn-primary">Add Education</a>
+                <p><a href="/addedu" class="btn btn-primary">Add Education</a></p>
 
             </div>
 
@@ -38,6 +40,7 @@
             <!--Roles: <span sec:authentication="principal.authorities">Principal Authorities not set</span>-->
 
             <a href="/showper" class="btn btn-primary">Show Person</a>
+
             <a href="/logout" class="btn btn-primary">Logout</a>
         </div>
     </div>
@@ -55,3 +58,18 @@
 
 </body>
 </html>
+
+<!--<div sec:authorize="isAuthenticated()">-->
+    <!--This content is only shown to authenticated users.-->
+<!--</div>-->
+<!--<div sec:authorize="hasAuthority('RECRUITERS')">-->
+    <!--This content is only shown to recruiters.-->
+<!--</div>-->
+<!--<div sec:authorize="hasAuthority('SEEKERS')">-->
+    <!--This content is only shown to job seekers.-->
+    <!--<a href="/addedu" class="btn btn-primary">Add Education</a>-->
+
+<!--</div>-->
+
+<!--Logged user: <span sec:authentication="name">The user is not logged in yet</span>-->
+<!--&lt;!&ndash;Roles: <span sec:authentication="principal.authorities">Principal Authorities not set</span>&ndash;&gt;-->

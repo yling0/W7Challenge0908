@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+<body>
+
+<h2 th:text="${addskimessage}">This should not display</h2>
+
+<form action="#" th:action="@{/addskitoper}" th:object="${newSki}" method="post">
+<input type="text" th:field="*{person.id}" />
+<input type="text" th:field="*{person.fName}"/>
+<input type="text" th:field="*{skiId}" />
+<br/>
+
+<p><span th:if="${#fields.hasErrors('skiName')}" th:error="*{skiName}">Input Error</span></p>
+<p>Enter your skills: <input type="text" th:field="*{skiName}"/></p>
+<span th:if="${#fields.hasErrors('skiLevel')}" th:error="*{skiLevel}">Input Error</span>
+<p>Enter your skills' level: <input type="text" th:field="*{skiLevel}"/></p>
+
+<button type="submit" class="btn btn-dark" value="Submit">Add Skill</button>
+<button type="reset" class="btn btn-dark" value="Reset">Reset</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Education</title>
+
+    <!--Bootstrap 4.0 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+</head>
+
+<body>
+
+<th:block th:replace="base :: navlinks"></th:block>
+
+<body>
+
+</body>
+<h1 th:text="${postjobmessage}">This should not display</h1>
+
+<form action="#" th:action="@{/postjobtoper}" th:object="${newJob}" method="post">
+    <input type="text" th:field="*{person.id}" />
+    <input type="text" th:field="*{person.fName}"/>
+    <input type="text" th:field="*{jobId}" />
+    <br/>
+
+    <p><span th:if="${#fields.hasErrors('jobTitle')}" th:error="*{jobTitle}">Job Title Error</span></p>
+    <p>Enter job title: <input type="text" th:field="*{jobTitle}"/></p>
+    <span th:if="${#fields.hasErrors('employer')}" th:error="*{employer}">Employer Error</span>
+    <p>Enter employer: <input type="text" th:field="*{employer}"/></p>
+    <span th:if="${#fields.hasErrors('salary')}" th:error="*{salary}">Salary Error</span>
+    <p>Enter salary: <input type="text" th:field="*{salary}"/></p>
+    <span th:if="${#fields.hasErrors('description')}" th:error="*{description}">Description Error</span>
+    <p>Enter description: <input type="text" th:field="*{description}"/></p>
+
+    <button type="submit" class="btn btn-dark" value="Submit">Post Another</button>
+    <button type="reset" class="btn btn-dark" value="Reset">Reset</button>
+</form>
+</html>

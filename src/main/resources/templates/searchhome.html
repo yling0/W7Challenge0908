@@ -10,14 +10,13 @@
 
 </head>
 <body>
-<h2>Your education added successfully</h2>
-<br/>
-<p th:text="'Education: ' + ${newEdu.degree} + ' in ' + ${newEdu.major}"></p>
-<p th:text="${newEdu.uni}"></p>
-<p th:text="${newEdu.graduateDate}"></p>
+<h2>Search Persons</h2>
+<a href="/searchperbyname">By Name</a>
+<a href="/searchperbycom">By Company</a>
+<a href="/searchperbysch">By Graduate School</a>
 
-<a href="/addedu"><button class="btn btn-dark">Add another</button></a>
-<a href="/showper"><button class="btn btn-dark">Back Home</button></a>
+<h2>Search Jobs</h2>
+<a href="/searchjobbytit">Search</a>
 
 </body>
 </html>

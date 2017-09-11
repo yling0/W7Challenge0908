@@ -38,32 +38,30 @@
 </tr>
 </th:block>
 
-<!--&lt;!&ndash;Experience info&ndash;&gt;-->
-<!--<h3>Experience</h3>-->
-<!--<th:block th:each="singleexp:${singleperson.experienceSet}">-->
-<!--<tr>-->
-<!--<p></p>-->
-<!--<p th:text="${singleexp.title}"/>-->
-<!--<p th:text="${singleexp.company}+', '+${singleexp.startDate}+' - '+${singleexp.endDate}"/>-->
-<!--<p th:text="'-Duty1: ' + ${singleexp.duty1}"/>-->
-<!--<p th:text="'-Duty2: ' + ${singleexp.duty2}"></p>-->
-<!--<a th:href="@{/updateexp/{id}(id=${singleexp.expId})}">Update</a> - -->
-<!--<a th:href="@{/deleteexp/{id}(id=${singleexp.expId})}">Delete</a>-->
-<!--</tr>-->
-<!--</th:block>-->
+<!--Experience info-->
+<h3>Experience</h3>
+<th:block th:each="singleexp:${person.experienceSet}">
+<tr>
+<p></p>
+<p th:text="${singleexp.title}"/>
+<p th:text="${singleexp.company}+', '+${singleexp.startDate}+' - '+${singleexp.endDate}"/>
+<p th:text="'-Duty1: ' + ${singleexp.duty1}"/>
+<p th:text="'-Duty2: ' + ${singleexp.duty2}"></p>
+<a th:href="@{/updateexp/{id}(id=${singleexp.expId})}">Update</a> -
+<a th:href="@{/deleteexp/{id}(id=${singleexp.expId})}">Delete</a>
+</tr>
+</th:block>
 
-<!--&lt;!&ndash;Skill info&ndash;&gt;-->
-<!--<h3>Skill</h3>-->
-<!--<th:block th:each="singleski:${singleperson.skillSet}">-->
-<!--<tr>-->
-<!--<p></p>-->
-<!--<p th:text="${singleski.skiName} + ', '+ ${singleski.skiLevel}"/>-->
-<!--<a th:href="@{/updateski/{id}(id=${singleski.skiId})}">Update</a> - -->
-<!--<a th:href="@{/deleteski/{id}(id=${singleski.skiId})}">Delete</a>-->
-<!--</tr>-->
-<!--</th:block>-->
-
-<!--</th:block>-->
+<!--Skill info-->
+<h3>Skill</h3>
+<th:block th:each="singleski:${person.skillSet}">
+<tr>
+<p></p>
+<p th:text="${singleski.skiName} + ', '+ ${singleski.skiLevel}"/>
+<a th:href="@{/updateski/{id}(id=${singleski.skiId})}">Update</a> -
+<a th:href="@{/deleteski/{id}(id=${singleski.skiId})}">Delete</a>
+</tr>
+</th:block>
 
 <a href="/showper"><button class="btn btn-dark">Back Home</button></a>
 

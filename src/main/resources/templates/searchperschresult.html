@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>University</td>
+        <td>Major</td>
+        <td>Graduate Date</td>
+    </tr>
+    <tr th:each="person : ${searchPerResultbySch}">
+        <td th:text="${person.fName}"></td>
+        <td th:text="${person.lName}"></td>
+    </tr>
+    <tr  th:each="school : ${searchSchResult}">
+        <td th:text="${school.uni}"></td>
+        <td th:text="${school.major}"></td>
+        <td th:text="${school.graduateDate}"></td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>
